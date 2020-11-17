@@ -7,16 +7,25 @@ using System.Threading.Tasks;
 namespace ProxyObject
 {
     [Serializable]
-    public delegate void ChangeColor();
+    public delegate void GetConnection();
     public delegate void EndChannel();
+    public delegate int CreateSite();
+    public delegate bool GetLogin(string taikhoan, string matkhau);
+    public delegate void CreateExam();
+    public delegate int GetResult();
 
     public interface IPrimeProxy
     {
-        void ChangColor();
         void EndChannel();
+        bool GetLogin(string taikhoan, string matkhau);
+        //   int CreateSite();
 
-        event ChangeColor ChangeReceived;
         event EndChannel EndReceived;
+        //   event CreateSite SiteReceived;
+
+        event GetConnection ConnectReceived;
+
+        event GetLogin LoginReceived;
     }
 
 }

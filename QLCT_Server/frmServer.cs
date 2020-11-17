@@ -1,4 +1,5 @@
-﻿using ProxyObject;
+﻿using DataLayer.BLL;
+using ProxyObject;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,10 +22,15 @@ namespace QLCT_Server
         #region Variable
 
         private TcpChannel tcpChannel = null;
+#pragma warning disable CS0169 // The field 'frmServer.type' is never used
         private Type type;
+#pragma warning restore CS0169 // The field 'frmServer.type' is never used
+#pragma warning disable CS0169 // The field 'frmServer.wellKnowMode' is never used
         private WellKnownObjectMode wellKnowMode;
+#pragma warning restore CS0169 // The field 'frmServer.wellKnowMode' is never used
         private PrimeProxy primeProxy;
 
+        private SitesBll _bus;
         #endregion
 
         #region Constructor
@@ -32,9 +38,40 @@ namespace QLCT_Server
         public frmServer()
         {
             InitializeComponent();
+
+            _bus = new SitesBll();
+
             btnStart.Click += BtnStart_Click;
-            btnColor.Click += BtnColor_Click;
             btnDongConnect.Click += BtnDongConnect_Click;
+            btnAddNewSite.Click += BtnAddNewSite_Click;
+            txtSearch.TextChanged += TxtSearch_TextChanged;
+            btnSearch.Click += BtnSearch_Click;
+
+        }
+
+        #endregion
+
+        #region Protected
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            lblTitle.Text = Instance.TitleServer;
+
+        }
+
+        #endregion
+
+        #region Private
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch.PerformClick();
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            dgvSites.DataSource = _bus.GetAllSites(txtSearch.Text);
         }
 
         #endregion
@@ -48,7 +85,8 @@ namespace QLCT_Server
             try
             {
                 tcpChannel = TwoWaysServerTerminal.StartListening(Instance.Port, Instance.TcpChannelName, primeProxy, Instance.objURI);
-                MessageBox.Show("Mở cổng thành công");
+                UICommon.ShowMsgInfoString("Mở cổng thành công");
+
             }
             catch (Exception ex)
             {
@@ -56,16 +94,30 @@ namespace QLCT_Server
             }
         }
 
-        private void BtnColor_Click(object sender, EventArgs e)
-        {
-            primeProxy.ChangColor();
-        }
-
         private void BtnDongConnect_Click(object sender, EventArgs e)
         {
-            primeProxy.EndChannel();
+            //try
+            //{
+            //    primeProxy.EndChannel();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(""+ex);
+            //}
+            Environment.Exit(1);
+            Application.ExitThread();
+        }
+
+        private void BtnAddNewSite_Click(object sender, EventArgs e)
+        {
+            frmAddSite frm = new frmAddSite();
+            if (frm.ShowDialog()==DialogResult.OK)
+            {
+                btnSearch.PerformClick();
+            }
         }
 
         #endregion
+
     }
 }

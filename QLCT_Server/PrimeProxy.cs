@@ -9,14 +9,15 @@ namespace QLCT_Server
 {
     public class PrimeProxy : MarshalByRefObject, IPrimeProxy
     {
-        public event ChangeColor ChangeReceived;
         public event EndChannel EndReceived;
+        public event GetConnection ConnectReceived;
+        public event GetLogin LoginReceived;
 
-        public void ChangColor()
+        public void GetConnection()
         {
-            Delegate[] invocationList = ChangeReceived.GetInvocationList();
+            Delegate[] invocationList = ConnectReceived.GetInvocationList();
 
-            foreach (ChangeColor item in invocationList)
+            foreach (GetConnection item in invocationList)
             {
                 try
                 {
@@ -25,27 +26,19 @@ namespace QLCT_Server
                 catch (Exception)
                 {
 
-                    ChangeReceived -= item;
+                    ConnectReceived -= item;
                 }
             }
         }
 
         public void EndChannel()
         {
-            Delegate[] invocationList = EndReceived.GetInvocationList();
 
-            foreach (EndChannel item in invocationList)
-            {
-                try
-                {
-                    item();
-                }
-                catch (Exception)
-                {
+        }
 
-                    EndReceived -= item;
-                }
-            }
+        public bool GetLogin(string taikhoan, string matkhau)
+        {
+            return true;
         }
     }
 }

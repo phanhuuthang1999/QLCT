@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLCT_Server", "QLCT_Server\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLCT_Client", "QLCT_Client\QLCT_Client.csproj", "{C98178BE-D813-46BF-8502-E8E61B907F9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{76532A96-50FA-48CC-934D-4A24B96CD627}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{9392B742-BB57-4EBD-B495-88CF33BE8702}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{C98178BE-D813-46BF-8502-E8E61B907F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C98178BE-D813-46BF-8502-E8E61B907F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C98178BE-D813-46BF-8502-E8E61B907F9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76532A96-50FA-48CC-934D-4A24B96CD627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76532A96-50FA-48CC-934D-4A24B96CD627}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76532A96-50FA-48CC-934D-4A24B96CD627}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76532A96-50FA-48CC-934D-4A24B96CD627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9392B742-BB57-4EBD-B495-88CF33BE8702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9392B742-BB57-4EBD-B495-88CF33BE8702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9392B742-BB57-4EBD-B495-88CF33BE8702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9392B742-BB57-4EBD-B495-88CF33BE8702}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

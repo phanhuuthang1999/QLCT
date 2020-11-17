@@ -18,10 +18,14 @@ namespace QLCT_Client
         #region Variable
 
         public static frmClient ins;
+#pragma warning disable CS0169 // The field 'frmClient.type' is never used
         Type type;
+#pragma warning restore CS0169 // The field 'frmClient.type' is never used
         IPrimeProxy primeProxy;
         TwoWaysClientTerminal twoWaysClientTerminal;
+#pragma warning disable CS0169 // The field 'frmClient.tcpChannel' is never used
         TcpChannel tcpChannel;
+#pragma warning restore CS0169 // The field 'frmClient.tcpChannel' is never used
         #endregion
 
         #region Constructor
@@ -31,6 +35,16 @@ namespace QLCT_Client
             InitializeComponent();
             ins = this;
             btnConnect.Click += BtnConnect_Click;
+        }
+
+        #endregion
+
+        #region Protected
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            lblTitle.Text = "THI CUỐI KỲ NHẬP MÔN LẬP TRÌNH";
         }
 
         #endregion
@@ -45,17 +59,28 @@ namespace QLCT_Client
                 primeProxy = twoWaysClientTerminal.Connect<IPrimeProxy>(Instance.IPServer, Instance.Port, Instance.objURI, Instance.TcpChannelName);
 
                 ClientEventsWrapper clientEventsWrapper = new ProxyObject.ClientEventsWrapper();
-                primeProxy.ChangeReceived += clientEventsWrapper.ChangeColorReceiveHandler;
-                primeProxy.EndReceived += clientEventsWrapper.EndChannelReceiveHandler;
 
-                clientEventsWrapper.ChangeColorReceived += PrimeProxy_ChangeReceived;
+                primeProxy.EndReceived += clientEventsWrapper.EndChannelReceiveHandler;
+                primeProxy.ConnectReceived += clientEventsWrapper.ConnectionReceiveHandler;
+
+                clientEventsWrapper.ConnectionReceived += ClientEventsWrapper_ConnectionReceived;
                 clientEventsWrapper.EndChannelReceived += ClientEventsWrapper_EndChannelReceived;
                 MessageBox.Show("Kết nối thành công");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi" , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ClientEventsWrapper_ConnectionReceived()
+        {
+            Connect();
+        }
+
+        private void Connect()
+        {
+
         }
 
         private void ClientEventsWrapper_EndChannelReceived()
@@ -70,18 +95,9 @@ namespace QLCT_Client
 
         private void PrimeProxy_ChangeReceived()
         {
-            ChangeColor();
+           
         }
 
-        private void ChangeColor()
-        {
-            ChangeColor(Color.Red);
-        }
-
-        private void ChangeColor(Color red)
-        {
-            button1.Invoke(new MethodInvoker(() => button1.ForeColor = red));
-        }
 
         #endregion
     }

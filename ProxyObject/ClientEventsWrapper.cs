@@ -8,16 +8,9 @@ namespace ProxyObject
 {
     public class ClientEventsWrapper : MarshalByRefObject
     {
-        public event ChangeColor ChangeColorReceived;
         public event EndChannel EndChannelReceived;
-
-        public void ChangeColorReceiveHandler()
-        {
-            if (ChangeColorReceived != null)
-            {
-                ChangeColorReceived();
-            }
-        }
+        public event GetConnection ConnectionReceived;
+        public event GetLogin LoginReceived;
 
         public void EndChannelReceiveHandler()
         {
@@ -27,5 +20,21 @@ namespace ProxyObject
             }
         }
 
+        public void ConnectionReceiveHandler()
+        {
+            if (ConnectionReceived != null)
+            {
+                ConnectionReceived();
+            }
+        }
+
+        public bool LoginReceivedHandler(string taikhoan,string matkhau)
+        {
+            if (LoginReceived != null)
+            {
+                LoginReceived(taikhoan,matkhau);
+            }
+            return true;
+        }
     }
 }

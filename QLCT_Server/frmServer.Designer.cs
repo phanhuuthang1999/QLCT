@@ -44,6 +44,7 @@ namespace QLCT_Server
             this.dgvSites = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvProperties = new System.Windows.Forms.DataGridView();
+            this.btnEnd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -59,6 +60,7 @@ namespace QLCT_Server
             this.panel1.Controls.Add(this.btnAddNewSite);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnEdit);
+            this.panel1.Controls.Add(this.btnEnd);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 501);
@@ -229,6 +231,17 @@ namespace QLCT_Server
             this.dgvProperties.Size = new System.Drawing.Size(748, 407);
             this.dgvProperties.TabIndex = 6;
             // 
+            // btnEnd
+            // 
+            this.btnEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnd.Location = new System.Drawing.Point(191, 3);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(79, 29);
+            this.btnEnd.TabIndex = 0;
+            this.btnEnd.Text = "End";
+            this.btnEnd.UseVisualStyleBackColor = true;
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +279,7 @@ namespace QLCT_Server
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.DataGridView dgvProperties;
         private System.Windows.Forms.Button btnAddNewSite;
+        private System.Windows.Forms.Button btnEnd;
     }
 }
 

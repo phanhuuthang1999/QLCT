@@ -46,6 +46,7 @@ namespace QLCT_Server
             btnAddNewSite.Click += BtnAddNewSite_Click;
             txtSearch.TextChanged += TxtSearch_TextChanged;
             btnSearch.Click += BtnSearch_Click;
+            btnEnd.Click += BtnEnd_Click;
 
         }
 
@@ -72,6 +73,11 @@ namespace QLCT_Server
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             dgvSites.DataSource = _bus.GetAllSites(txtSearch.Text);
+        }
+
+        private void BtnEnd_Click(object sender, EventArgs e)
+        {
+
         }
 
         #endregion

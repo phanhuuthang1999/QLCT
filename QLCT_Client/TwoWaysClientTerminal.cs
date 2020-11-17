@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ProxyObject;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Serialization.Formatters;
@@ -49,9 +51,17 @@ namespace QLCT_Client
 
         public void Disconnect()
         {
+            
             if (m_Channel != null)
             {
-                ChannelServices.UnregisterChannel(m_Channel);
+                try
+                {
+                    ChannelServices.UnregisterChannel(m_Channel);
+                }
+                catch (Exception ex)
+                {
+                    UICommon.ShowMsgErrorString(ex.Message);
+                }
             }
         }
     }

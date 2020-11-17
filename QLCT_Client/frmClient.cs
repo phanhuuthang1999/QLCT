@@ -35,6 +35,9 @@ namespace QLCT_Client
             InitializeComponent();
             ins = this;
             btnConnect.Click += BtnConnect_Click;
+            button1.Click += Button1_Click;
+
+            twoWaysClientTerminal = new TwoWaysClientTerminal();
         }
 
         #endregion
@@ -44,7 +47,7 @@ namespace QLCT_Client
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            lblTitle.Text = "THI CUỐI KỲ NHẬP MÔN LẬP TRÌNH";
+            lblTitle.Text = Instance.TitleClient;
         }
 
         #endregion
@@ -55,7 +58,7 @@ namespace QLCT_Client
         {
             try
             {
-                twoWaysClientTerminal = new TwoWaysClientTerminal();
+
                 primeProxy = twoWaysClientTerminal.Connect<IPrimeProxy>(Instance.IPServer, Instance.Port, Instance.objURI, Instance.TcpChannelName);
 
                 ClientEventsWrapper clientEventsWrapper = new ProxyObject.ClientEventsWrapper();
@@ -65,12 +68,17 @@ namespace QLCT_Client
 
                 clientEventsWrapper.ConnectionReceived += ClientEventsWrapper_ConnectionReceived;
                 clientEventsWrapper.EndChannelReceived += ClientEventsWrapper_EndChannelReceived;
-                MessageBox.Show("Kết nối thành công");
+                UICommon.ShowMsgInfoString("Kết nối thành công");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UICommon.ShowMsgErrorString(ex.Message);
             }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            EndChannel();
         }
 
         private void ClientEventsWrapper_ConnectionReceived()
@@ -95,9 +103,8 @@ namespace QLCT_Client
 
         private void PrimeProxy_ChangeReceived()
         {
-           
+            EndChannel();
         }
-
 
         #endregion
     }

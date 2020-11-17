@@ -22,6 +22,7 @@ namespace DataLayer.DAL
         public virtual DbSet<DM_NgonNgu> DM_NgonNgu { get; set; }
         public virtual DbSet<DT_ThiSinh> DT_ThiSinh { get; set; }
         public virtual DbSet<KT_KyThi> KT_KyThi { get; set; }
+        public virtual DbSet<DangNhap> DangNhap { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -63,6 +64,9 @@ namespace DataLayer.DAL
 
             modelBuilder.Entity<KT_KyThi>()
                 .Property(e => e.MaKyThi)
+                .IsUnicode(false);
+            modelBuilder.Entity<DangNhap>()
+                .Property(e => e.TenDN)
                 .IsUnicode(false);
         }
     }

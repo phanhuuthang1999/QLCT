@@ -102,14 +102,14 @@ namespace QLCT_Server
 
         private void BtnDongConnect_Click(object sender, EventArgs e)
         {
-            //try
+            /*try
             //{
             //    primeProxy.EndChannel();
             //}
             //catch (Exception ex)
             //{
             //    MessageBox.Show(""+ex);
-            //}
+            }*/
             Environment.Exit(1);
             Application.ExitThread();
         }

@@ -12,7 +12,36 @@ namespace QLCT_Server
         public event EndChannel EndReceived;
         public event GetConnection ConnectReceived;
         public event GetLogin LoginReceived;
+        public event CreateSite SiteReceived;
+        public event NopBai NopBaiReceived;
 
+        #region Server
+
+        public int CreateSite()
+        {
+            return 1;
+        }
+        public void EndChannel()
+        {
+
+        }
+
+        #endregion
+
+        #region Thí sinh
+
+        public void NopBai()
+        {
+
+        }
+
+        #endregion
+
+        #region Dùng chung
+        public bool GetLogin(string taikhoan, string matkhau)
+        {
+            return true;
+        }
         public void GetConnection()
         {
             Delegate[] invocationList = ConnectReceived.GetInvocationList();
@@ -30,15 +59,6 @@ namespace QLCT_Server
                 }
             }
         }
-
-        public void EndChannel()
-        {
-
-        }
-
-        public bool GetLogin(string taikhoan, string matkhau)
-        {
-            return true;
-        }
+        #endregion
     }
 }

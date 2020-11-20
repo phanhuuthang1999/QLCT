@@ -24,5 +24,7 @@ namespace ProxyObject
         public static string EditSite = "Edit Site";
 
         #endregion
+
+
     }
 }

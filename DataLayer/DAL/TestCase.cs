@@ -9,7 +9,6 @@ namespace DataLayer.DAL
     [Table("TestCase")]
     public partial class TestCase
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [StringLength(255)]
@@ -19,5 +18,7 @@ namespace DataLayer.DAL
         public string Output { get; set; }
 
         public virtual CauHoi CauHoi { get; set; }
+
+        public virtual KQ_TC KQ_TC { get; set; }
     }
 }

@@ -9,7 +9,6 @@ namespace DataLayer.DAL
     [Table("GiamThi")]
     public partial class GiamThi
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [StringLength(255)]
@@ -20,6 +19,11 @@ namespace DataLayer.DAL
 
         [StringLength(255)]
         public string Ten { get; set; }
+
+        public int? GIoiTinh { get; set; }
+
+        [StringLength(255)]
+        public string DonViCongTac { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
     }

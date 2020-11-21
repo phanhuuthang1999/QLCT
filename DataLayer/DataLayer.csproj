@@ -64,6 +64,7 @@
     <Compile Include="DAL\Extentions\GioiTinh.cs" />
     <Compile Include="DAL\GiamThi.cs" />
     <Compile Include="DAL\KetQua.cs" />
+    <Compile Include="DAL\KQ_TC.cs" />
     <Compile Include="DAL\PhongThi.cs" />
     <Compile Include="DAL\TaiKhoan.cs" />
     <Compile Include="DAL\TestCase.cs" />

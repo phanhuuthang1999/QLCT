@@ -15,6 +15,7 @@ namespace DataLayer.DAL
         public virtual DbSet<CauHoi> CauHois { get; set; }
         public virtual DbSet<GiamThi> GiamThis { get; set; }
         public virtual DbSet<KetQua> KetQuas { get; set; }
+        public virtual DbSet<KQ_TC> KQ_TC { get; set; }
         public virtual DbSet<PhongThi> PhongThis { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<TestCase> TestCases { get; set; }
@@ -38,6 +39,10 @@ namespace DataLayer.DAL
                 .HasOptional(e => e.TaiKhoan)
                 .WithRequired(e => e.KetQua);
 
+            modelBuilder.Entity<KetQua>()
+                .HasOptional(e => e.KQ_TC)
+                .WithRequired(e => e.KetQua);
+
             modelBuilder.Entity<PhongThi>()
                 .HasOptional(e => e.TaiKhoan)
                 .WithRequired(e => e.PhongThi);
@@ -52,6 +57,10 @@ namespace DataLayer.DAL
 
             modelBuilder.Entity<TestCase>()
                 .HasOptional(e => e.CauHoi)
+                .WithRequired(e => e.TestCase);
+
+            modelBuilder.Entity<TestCase>()
+                .HasOptional(e => e.KQ_TC)
                 .WithRequired(e => e.TestCase);
         }
     }

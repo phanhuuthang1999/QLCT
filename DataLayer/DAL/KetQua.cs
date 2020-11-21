@@ -9,7 +9,6 @@ namespace DataLayer.DAL
     [Table("KetQua")]
     public partial class KetQua
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         public int? Diem { get; set; }
@@ -19,5 +18,7 @@ namespace DataLayer.DAL
         public virtual CauHoi CauHoi { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
+
+        public virtual KQ_TC KQ_TC { get; set; }
     }
 }

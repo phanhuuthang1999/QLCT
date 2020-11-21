@@ -9,7 +9,6 @@ namespace DataLayer.DAL
     [Table("CauHoi")]
     public partial class CauHoi
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [StringLength(255)]

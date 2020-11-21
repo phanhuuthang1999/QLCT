@@ -9,7 +9,6 @@ namespace DataLayer.DAL
     [Table("TaiKhoan")]
     public partial class TaiKhoan
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [StringLength(255)]
@@ -17,6 +16,9 @@ namespace DataLayer.DAL
 
         [StringLength(255)]
         public string MatKhau { get; set; }
+
+        [StringLength(500)]
+        public string TenHienThi { get; set; }
 
         public bool? isQuyen { get; set; }
 

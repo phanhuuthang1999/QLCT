@@ -9,7 +9,6 @@ namespace DataLayer.DAL
     [Table("ThiSinh")]
     public partial class ThiSinh
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         public int? MSSV { get; set; }
@@ -19,6 +18,8 @@ namespace DataLayer.DAL
 
         [StringLength(255)]
         public string Ten { get; set; }
+
+        public int? GIoiTinh { get; set; }
 
         public DateTime? NgaySinh { get; set; }
 

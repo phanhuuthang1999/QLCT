@@ -12,62 +12,47 @@ namespace DataLayer.DAL
         {
         }
 
-        public virtual DbSet<DM_CauHoi> DM_CauHoi { get; set; }
-        public virtual DbSet<DM_DapAn> DM_DapAn { get; set; }
-        public virtual DbSet<DM_GiamThi> DM_GiamThi { get; set; }
-        public virtual DbSet<DM_KetQua> DM_KetQua { get; set; }
-        public virtual DbSet<DM_Khoa> DM_Khoa { get; set; }
-        public virtual DbSet<DM_LopHoc> DM_LopHoc { get; set; }
-        public virtual DbSet<DM_MonHoc> DM_MonHoc { get; set; }
-        public virtual DbSet<DM_NgonNgu> DM_NgonNgu { get; set; }
-        public virtual DbSet<DT_ThiSinh> DT_ThiSinh { get; set; }
-        public virtual DbSet<KT_KyThi> KT_KyThi { get; set; }
-        public virtual DbSet<DangNhap> DangNhap { get; set; }
+        public virtual DbSet<CauHoi> CauHois { get; set; }
+        public virtual DbSet<GiamThi> GiamThis { get; set; }
+        public virtual DbSet<KetQua> KetQuas { get; set; }
+        public virtual DbSet<PhongThi> PhongThis { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public virtual DbSet<TestCase> TestCases { get; set; }
+        public virtual DbSet<ThiSinh> ThiSinhs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DM_CauHoi>()
-                .Property(e => e.MaCH)
-                .IsUnicode(false);
+            modelBuilder.Entity<CauHoi>()
+                .HasOptional(e => e.PhongThi)
+                .WithRequired(e => e.CauHoi);
 
-            modelBuilder.Entity<DM_DapAn>()
-                .Property(e => e.MaDA)
-                .IsUnicode(false);
+            modelBuilder.Entity<GiamThi>()
+                .HasOptional(e => e.TaiKhoan)
+                .WithRequired(e => e.GiamThi);
 
-            modelBuilder.Entity<DM_GiamThi>()
-                .Property(e => e.MaGT)
-                .IsUnicode(false);
+            modelBuilder.Entity<KetQua>()
+                .HasOptional(e => e.CauHoi)
+                .WithRequired(e => e.KetQua);
 
-            modelBuilder.Entity<DM_KetQua>()
-                .Property(e => e.MaKQ)
-                .IsUnicode(false);
+            modelBuilder.Entity<KetQua>()
+                .HasOptional(e => e.TaiKhoan)
+                .WithRequired(e => e.KetQua);
 
-            modelBuilder.Entity<DM_Khoa>()
-                .Property(e => e.MaKhoa)
-                .IsUnicode(false);
+            modelBuilder.Entity<PhongThi>()
+                .HasOptional(e => e.TaiKhoan)
+                .WithRequired(e => e.PhongThi);
 
-            modelBuilder.Entity<DM_LopHoc>()
-                .Property(e => e.MaLop)
-                .IsUnicode(false);
+            modelBuilder.Entity<PhongThi>()
+                .HasOptional(e => e.ThiSinh)
+                .WithRequired(e => e.PhongThi);
 
-            modelBuilder.Entity<DM_MonHoc>()
-                .Property(e => e.MaMon)
-                .IsUnicode(false);
+            modelBuilder.Entity<TaiKhoan>()
+                .HasOptional(e => e.ThiSinh)
+                .WithRequired(e => e.TaiKhoan);
 
-            modelBuilder.Entity<DM_NgonNgu>()
-                .Property(e => e.MaNN)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DT_ThiSinh>()
-                .Property(e => e.MaTS)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<KT_KyThi>()
-                .Property(e => e.MaKyThi)
-                .IsUnicode(false);
-            modelBuilder.Entity<DangNhap>()
-                .Property(e => e.TenDN)
-                .IsUnicode(false);
+            modelBuilder.Entity<TestCase>()
+                .HasOptional(e => e.CauHoi)
+                .WithRequired(e => e.TestCase);
         }
     }
 }

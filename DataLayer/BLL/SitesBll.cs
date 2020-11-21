@@ -9,14 +9,15 @@ namespace DataLayer.BLL
 {
     public class SitesBll : BaseBll
     {
-        public List<KT_KyThi> GetAllSites(string s)
+        public List<PhongThi> GetAllSites(string s)
         {
-            var data = Context.KT_KyThi.AsQueryable();
+            var data = Context.PhongThis.AsQueryable();
             if (!string.IsNullOrEmpty(s))
             {
-                data = data.Where(h => h.TenKyThi.Contains(s));
+                data = data.Where(h => h.TenPhong.Contains(s));
             }
             return data.ToList();
         }
+
     }
 }

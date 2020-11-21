@@ -10,6 +10,7 @@ namespace ProxyObject
     {
         public event EndChannel EndChannelReceived;
         public event GetConnection ConnectionReceived;
+
         public event GetLogin LoginReceived;
 
         public void EndChannelReceiveHandler()

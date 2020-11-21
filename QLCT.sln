@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLCT_Client", "QLCT_Client\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{9392B742-BB57-4EBD-B495-88CF33BE8702}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLCT_GIamThi", "QLCT_GIamThi\QLCT_GIamThi.csproj", "{9ADD2A7C-D6C4-4E5D-ADED-C00C1E0027A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9392B742-BB57-4EBD-B495-88CF33BE8702}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9392B742-BB57-4EBD-B495-88CF33BE8702}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9392B742-BB57-4EBD-B495-88CF33BE8702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ADD2A7C-D6C4-4E5D-ADED-C00C1E0027A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ADD2A7C-D6C4-4E5D-ADED-C00C1E0027A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ADD2A7C-D6C4-4E5D-ADED-C00C1E0027A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ADD2A7C-D6C4-4E5D-ADED-C00C1E0027A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

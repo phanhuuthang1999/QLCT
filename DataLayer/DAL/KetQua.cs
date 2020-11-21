@@ -6,21 +6,18 @@ namespace DataLayer.DAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class DM_KetQua
+    [Table("KetQua")]
+    public partial class KetQua
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-
-        [StringLength(10)]
-        public string MaKQ { get; set; }
-
-        public int? IDThiSinh { get; set; }
-
-        public int? IDKyThi { get; set; }
-
-        public DateTime? NgayThi { get; set; }
 
         public int? Diem { get; set; }
 
-        public int? TongTGThi { get; set; }
+        public DateTime? NgayThi { get; set; }
+
+        public virtual CauHoi CauHoi { get; set; }
+
+        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }

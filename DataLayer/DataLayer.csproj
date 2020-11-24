@@ -55,7 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BaseBll.cs" />
+    <Compile Include="BLL\CauHoiBll.cs" />
     <Compile Include="BLL\DangNhapBll.cs" />
+    <Compile Include="BLL\GiamThiBll.cs" />
+    <Compile Include="BLL\SinhVienBll.cs" />
     <Compile Include="BLL\SitesBll.cs" />
     <Compile Include="Common\LayerComon.cs" />
     <Compile Include="Common\StructEnum.cs" />

@@ -29,39 +29,39 @@ namespace DataLayer.BLL
             return Context.TaiKhoans.Any(t => t.Tk == tk && t.MatKhau == mk);
         }
 
-        //public List<TaiKhoan> GetDanhSach(string s)
-        //{
-        //    var data = Context.TaiKhoans.AsQueryable();
+        public List<TaiKhoan> GetDanhSach(string s)
+        {
+            var data = Context.TaiKhoans.AsQueryable();
 
-        //    if (!string.IsNullOrEmpty(s))
-        //    {
-        //        data = data.Where(p => p.TenHienThi.Contains(s));
-        //    }
-        //    return data.ToList();
-        //}
+            if (!string.IsNullOrEmpty(s))
+            {
+                data = data.Where(p => p.TenHienThi.Contains(s));
+            }
+            return data.ToList();
+        }
 
         public bool CheckExist(TaiKhoan pTaiKhoans)
         {
             return Context.TaiKhoans.Any(n => n.Tk.Equals(pTaiKhoans.Tk) && n.Id != pTaiKhoans.Id);
         }
 
-        //public int AddTaiKhoans(TaiKhoan pTaiKhoans)
-        //{
-        //    var TaiKhoans = Context.TaiKhoans.FirstOrDefault(p => p.Id.Equals(pTaiKhoans.Id));
-        //    if (TaiKhoans == null)
-        //    {
-        //        TaiKhoans = new TaiKhoan();
-        //    }
-        //    TaiKhoans.TenHienThi = pTaiKhoans.TenHienThi;
-        //    TaiKhoans.Tk = pTaiKhoans.Tk;
-        //    TaiKhoans.MatKhau = pTaiKhoans.MatKhau;
-        //    TaiKhoans.isActive = pTaiKhoans.isActive;
-        //    TaiKhoans.Quyen = pTaiKhoans.Quyen;
+        public int AddTaiKhoans(TaiKhoan pTaiKhoans)
+        {
+            var TaiKhoans = Context.TaiKhoans.FirstOrDefault(p => p.Id.Equals(pTaiKhoans.Id));
+            if (TaiKhoans == null)
+            {
+                TaiKhoans = new TaiKhoan();
+            }
+            TaiKhoans.TenHienThi = pTaiKhoans.TenHienThi;
+            TaiKhoans.Tk = pTaiKhoans.Tk;
+            TaiKhoans.MatKhau = pTaiKhoans.MatKhau;
+            TaiKhoans.isActive = pTaiKhoans.isActive;
+            TaiKhoans.isQuyen = pTaiKhoans.isQuyen;
 
-        //    Context.TaiKhoans.Add(TaiKhoans);
+            Context.TaiKhoans.Add(TaiKhoans);
 
-        //    return Context.SaveChanges();
-        //}
+            return Context.SaveChanges();
+        }
 
         public int DeleteTaiKhoans(TaiKhoan pTaiKhoans)
         {

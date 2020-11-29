@@ -28,6 +28,7 @@ namespace ProxyObject
     [Serializable]
     public delegate void NopBai();
     public delegate void ReceiveResult();
+    public delegate int CreateSite();
     #endregion
 
     #region Dùng chung

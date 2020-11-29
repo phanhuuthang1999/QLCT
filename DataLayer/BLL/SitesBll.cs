@@ -39,11 +39,9 @@ namespace DataLayer.BLL
 
             PhongThi.MaPhong = pPhongThi.MaPhong;
             PhongThi.TenPhong = pPhongThi.TenPhong;
-            PhongThi.IDGiamThi = pPhongThi.IDGiamThi;
             PhongThi.Port = pPhongThi.Port;
             PhongThi.Status = pPhongThi.Status;
-            PhongThi.ThoiGianKetThuc = pPhongThi.ThoiGianKetThuc;
-
+         
             return Context.SaveChanges();
         }
 

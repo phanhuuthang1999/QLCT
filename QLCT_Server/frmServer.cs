@@ -1,18 +1,8 @@
 ﻿using DataLayer.BLL;
 using ProxyObject;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using System.Runtime.Serialization.Formatters;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLCT_Server
@@ -48,6 +38,7 @@ namespace QLCT_Server
             btnSearch.Click += BtnSearch_Click;
             btnEnd.Click += BtnEnd_Click;
 
+            tsBoCauHoi.Click += TsBoCauHoi_Click;
         }
 
         #endregion
@@ -64,6 +55,16 @@ namespace QLCT_Server
         #endregion
 
         #region Private
+
+        private void TsBoCauHoi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HeThong.frmBoCauHoi frm = new HeThong.frmBoCauHoi();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                btnSearch.PerformClick();
+            }
+        }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {

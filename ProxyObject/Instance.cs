@@ -23,6 +23,8 @@ namespace ProxyObject
         public static string NewSite = "Add New Site";
         public static string EditSite = "Edit Site";
 
+        public static string TitleBoCauHoi = "QUẢN LÝ BỘ CÂU HỎI";
+
         #endregion
 
 

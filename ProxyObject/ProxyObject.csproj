@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientEventsWrapper.cs" />
+    <Compile Include="Common\UICommon.cs" />
     <Compile Include="Instance.cs" />
     <Compile Include="IPrimeProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

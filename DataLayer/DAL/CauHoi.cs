@@ -1,10 +1,7 @@
 namespace DataLayer.DAL
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("CauHoi")]
     public partial class CauHoi

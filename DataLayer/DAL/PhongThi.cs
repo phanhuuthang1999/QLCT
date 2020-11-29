@@ -17,13 +17,15 @@ namespace DataLayer.DAL
         [StringLength(255)]
         public string TenPhong { get; set; }
 
-        public int? IDGiamThi { get; set; }
-
         public int? Port { get; set; }
 
+        /// <summary>
+        /// 1 : New : Phòng kh?i t?o
+        /// 2 : Open: Thí sinh ch? ???c phép ??ng nh?p
+        /// 3 : Start: Thí ???c phép xem và làm bài thi
+        /// 4 : Close: B?t bu?c ?óng, submit bài thi
+        /// </summary>
         public int? Status { get; set; }
-
-        public TimeSpan? ThoiGianKetThuc { get; set; }
 
         public virtual CauHoi CauHoi { get; set; }
 

@@ -12,8 +12,9 @@ namespace QLCT_Server
         public event EndChannel EndReceived;
         public event GetConnection ConnectReceived;
         public event GetLogin LoginReceived;
-        public event CreateSite SiteReceived;
+       // public event CreateSite SiteReceived;
         public event NopBai NopBaiReceived;
+        public event ReceiveResult ReceivedResult;
 
         #region Server
 
@@ -58,6 +59,11 @@ namespace QLCT_Server
                     ConnectReceived -= item;
                 }
             }
+        }
+
+        public void ReceiveResult()
+        {
+
         }
         #endregion
     }

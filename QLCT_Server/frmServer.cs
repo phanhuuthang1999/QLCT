@@ -1,5 +1,6 @@
 ﻿using DataLayer.BLL;
 using ProxyObject;
+using QLCT_Server.Controls;
 using System;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels.Tcp;
@@ -21,6 +22,9 @@ namespace QLCT_Server
         private PrimeProxy primeProxy;
 
         private SitesBll _bus;
+
+        private UcDataGridView gridData;
+
         #endregion
 
         #region Constructor
@@ -29,16 +33,28 @@ namespace QLCT_Server
         {
             InitializeComponent();
 
+
             _bus = new SitesBll();
+            gridData = new UcDataGridView();
 
             btnStart.Click += BtnStart_Click;
             btnDongConnect.Click += BtnDongConnect_Click;
             btnAddNewSite.Click += BtnAddNewSite_Click;
+
             txtSearch.TextChanged += TxtSearch_TextChanged;
+
+            tsBoCauHoi.Click += TsBoCauHoi_Click; ;
+
             btnSearch.Click += BtnSearch_Click;
             btnEnd.Click += BtnEnd_Click;
 
-            tsBoCauHoi.Click += TsBoCauHoi_Click;
+            gridData.ColumnUnique = "Id";
+            gridData.IsShowCheckBox = true;
+            gridData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            grbSites.Controls.Add(gridData);
+
+            gridData.LstColumnMapping.Add(new GridMappingData { Id = 1, Name = "TenPhong", HeaderText = "Tên Phòng", Align = DataGridViewContentAlignment.MiddleCenter });
         }
 
         #endregion
@@ -49,31 +65,26 @@ namespace QLCT_Server
         {
             base.OnShown(e);
             lblTitle.Text = Instance.TitleServer;
-
+            LoadSites();
         }
 
         #endregion
 
         #region Private
 
-        private void TsBoCauHoi_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            HeThong.frmBoCauHoi frm = new HeThong.frmBoCauHoi();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                btnSearch.PerformClick();
-            }
-        }
-
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             btnSearch.PerformClick();
         }
 
+        private void LoadSites()
+        {
+            gridData.DataSource = _bus.GetAllSites(txtSearch.Text);
+        }
+
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            dgvSites.DataSource = _bus.GetAllSites(txtSearch.Text);
+            LoadSites();
         }
 
         private void BtnEnd_Click(object sender, EventArgs e)
@@ -84,6 +95,16 @@ namespace QLCT_Server
         #endregion
 
         #region Events
+
+        private void TsBoCauHoi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HeThong.frmBoCauHoi frm = new HeThong.frmBoCauHoi();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                btnSearch.PerformClick();
+            }
+        }
 
         private void BtnStart_Click(object sender, EventArgs e)
         {

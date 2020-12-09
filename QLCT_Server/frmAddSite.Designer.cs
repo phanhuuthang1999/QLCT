@@ -38,6 +38,7 @@ namespace QLCT_Server
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,11 +123,22 @@ namespace QLCT_Server
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(124, 204);
+            this.maskedTextBox1.Mask = "0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.PromptChar = ' ';
+            this.maskedTextBox1.Size = new System.Drawing.Size(234, 20);
+            this.maskedTextBox1.TabIndex = 3;
+            this.maskedTextBox1.ValidatingType = typeof(int);
+            // 
             // frmAddSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 193);
+            this.ClientSize = new System.Drawing.Size(376, 305);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupBox1);
@@ -136,6 +148,7 @@ namespace QLCT_Server
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -150,5 +163,6 @@ namespace QLCT_Server
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

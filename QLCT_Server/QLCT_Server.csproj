@@ -69,6 +69,12 @@
     <Compile Include="frmAddSite.Designer.cs">
       <DependentUpon>frmAddSite.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     <Compile Include="HeThong\frmBoCauHoi.Designer.cs">
       <DependentUpon>frmBoCauHoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\frmThemBoCauHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\frmThemBoCauHoi.Designer.cs">
+      <DependentUpon>frmThemBoCauHoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrimeProxy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,11 +103,17 @@
     <EmbeddedResource Include="frmAddSite.resx">
       <DependentUpon>frmAddSite.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmServer.resx">
       <DependentUpon>frmServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\frmBoCauHoi.resx">
       <DependentUpon>frmBoCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\frmThemBoCauHoi.resx">
+      <DependentUpon>frmThemBoCauHoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

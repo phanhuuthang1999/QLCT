@@ -1,4 +1,5 @@
-﻿using DataLayer.DAL;
+﻿using DataLayer.BLL;
+using DataLayer.DAL;
 using ProxyObject;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLCT_Server
+namespace QLCT_Server.HeThong
 {
-    public partial class frmAddSite : Form
+    public partial class frmThemBoCauHoi : Form
     {
+
         #region Variable
+
+        CauHoiBll _bus;
 
         #endregion
 
         #region Constructor
 
-        public frmAddSite()
+        public frmThemBoCauHoi()
         {
             InitializeComponent();
+            _bus = new CauHoiBll();
+
             btnExit.Click += BtnExit_Click;
             btnSave.Click += BtnSave_Click;
         }
@@ -34,15 +40,15 @@ namespace QLCT_Server
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            if (PhongThi != null)
+            if (CauHoi != null)
             {
-                if (PhongThi.Id == 0)
+                if (CauHoi.Id == 0)
                 {
-                    this.Text = Instance.CoppySite;
+                    this.Text = Instance.TitleCoppyCauHoi;
                 }
-                this.Text = Instance.EditSite;
+                this.Text = Instance.TitleEditCauHoi;
             }
-            this.Text = Instance.NewSite;
+            this.Text = Instance.TitleAddCauHoi;
         }
 
         #endregion
@@ -63,7 +69,7 @@ namespace QLCT_Server
 
         #region Public
 
-        public PhongThi PhongThi { get; set; }
+        public CauHoi CauHoi { get; set; }
 
         #endregion
     }
